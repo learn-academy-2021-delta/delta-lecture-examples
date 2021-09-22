@@ -27,6 +27,10 @@ class Miles extends Component {
           Add a mile
         </button>
         <div className="square"></div>
+        <div className="square"></div>
+        <div className="square"></div>
+        <div className="square"></div>
+        <div id="just-one-square"></div>
       </>
     )
   }
