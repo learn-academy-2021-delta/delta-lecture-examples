@@ -51,14 +51,13 @@ end
 <p>Is watered: <%= @herb.is_watered %></p>
 ```
 
-Routing Aliases:
-```
+- Adding routing aliases:
+```ruby
 get '/herbs' => 'herb#index', as: 'herbs'
 get '/herbs/:id' => 'herb#show', as: 'herb'
 ```
-From Show to Index: `<%= link_to "Back to All Herbs", herbs_path %>`
-
-From Index to Show: `<%= link_to herb.name, herb_path(herb) %>`
+- From Show to Index: `<%= link_to "Back to All Herbs", herbs_path %>`
+- From Index to Show: `<%= link_to herb.name, herb_path(herb) %>`
 
 ## New
 1. Controller
