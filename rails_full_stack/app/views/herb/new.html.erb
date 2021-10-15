@@ -1,0 +1,13 @@
+<h3>Add an Herb</h3>
+
+<%= form_with model: @herb, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br />
+  <br />
+  <%= form.label :is_watered %>
+  <%= form.text_field :is_watered %>
+  <br />
+  <br />
+  <%= form.submit "Add Herb" %>
+<% end %>

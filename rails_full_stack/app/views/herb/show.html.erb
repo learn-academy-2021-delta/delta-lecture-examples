@@ -1,0 +1,16 @@
+<h3>Just One Herb</h3>
+<p>Name: <%= @herb.name %></p>
+<p>Is watered: <%= @herb.is_watered %></p>
+
+<br />
+<p>
+  <%= link_to 'Back to All Herbs', herbs_path %>
+</p>
+<br />
+<p>
+  <%= link_to 'Update Herb', edit_herb_path(@herb) %>
+</p>
+<br />
+<p>
+  <%= link_to 'Delete Herb', delete_herb_path(@herb), method: :delete, data: { confirm: 'Are you sure you want to delete this herb?'} %>
+</p>
