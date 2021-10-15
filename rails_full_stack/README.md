@@ -154,3 +154,26 @@ def update
   end
 end
 ```
+
+## Destroy
+1. Controller
+```ruby
+def destroy
+  @herb = Herb.find(params[:id])
+  @herb.destroy
+end
+```
+2. Route: `delete '/herbs/:id' => 'herb#destroy', as: 'delete_herb'`
+3. View: `<%= link_to 'Delete Herb', delete_herb_path(@herb), method: :delete %>`
+- Adding redirect
+```ruby
+def destroy
+  @herb = Herb.find(params[:id])
+  if @herb.destroy
+    redirect_to herbs_path
+  else
+    redirect_to herb_path(@herb)
+  end
+end
+```
+- Adding an alert confirmation: `<%= link_to 'Delete Herb', delete_herb_path(@herb), method: :delete, data: { confirm: 'Are you sure you want to delete this herb?'} %>`
