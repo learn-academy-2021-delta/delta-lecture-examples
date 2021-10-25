@@ -47,7 +47,7 @@ Rails Console
 - Added a few db instances to get started
 
 Postman
-- + sign in the corner to bring up a new tab with a url bar
+- `+` sign in the corner to bring up a new tab with a url bar
 - Headers >> key: content-type, value: application/json
 
 API Stories
