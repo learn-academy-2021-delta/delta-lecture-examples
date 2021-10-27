@@ -1,29 +1,33 @@
 import React, { Component } from 'react'
+// import nasaData from './mockNasa.js'
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      ip: ""
+      nasa: "",
+      pic: ""
     }
   }
 
-  getIP = () => {
-    fetch("https://ipapi.co/json/")
+  componentDidMount(){
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${process.env.REACT_APP_MY_NASA_API_KEY}`)
     .then(response => response.json())
-    .then(payload => this.setState({ip: payload}))
+    .then(payload => this.setState({nasa: payload.photos}))
+  }
+
+  getPic = () => {
+    let randomNum = Math.floor(Math.random() * this.state.nasa.length)
+    this.setState({pic: this.state.nasa[randomNum].img_src})
   }
 
   render() {
-    console.log(this.state.ip.ip)
     return (
       <>
-        <h2>Get Your IP Address</h2>
-        <button onClick={this.getIP}>Click Me!</button>
-        <h4>{this.state.ip.ip}</h4>
-        <h4>{this.state.ip.city}</h4>
-        <h4>{this.state.ip.country_code}</h4>
-        <h4>{this.state.ip}</h4>
+        <h2>Mars Rover Photos</h2>
+        <button onClick={this.getPic}>Get a random Mars pic</button>
+        <br />
+        {this.state.pic && <img src={this.state.pic} alt="random mars rover" width="200px"/>}
       </>
     )
   }
